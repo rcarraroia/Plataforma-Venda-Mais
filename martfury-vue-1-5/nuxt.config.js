@@ -19,13 +19,13 @@ export default {
             {
                 rel: 'stylesheet',
                 href:
-                    'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext'
+                    'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext'
             }
         ]
     },
 
     css: [
-        'swiper/dist/css/swiper.css',
+        'swiper/swiper-bundle.css',
         '~/static/fonts/Linearicons/Font/demo-files/demo.css',
         '~/static/fonts/font-awesome/css/font-awesome.css',
         '~/static/css/bootstrap.min.css',
