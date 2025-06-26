@@ -1,6 +1,6 @@
 <template lang="html">
     <div class="ps-page--single">
-        <img src="~/static/img/bg/about-us.jpg" alt="" />
+        <img src="/img/bg/about-us.jpg" alt="" />
         <bread-crumb :breadcrumb="breadCrumb" />
         <our-team />
         <about-awards />
