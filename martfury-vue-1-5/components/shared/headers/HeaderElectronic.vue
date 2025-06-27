@@ -35,7 +35,7 @@
                 <div class="header__content-left">
                     <nuxt-link to="/home/electronic" class="ps-logo">
                         <img
-                            src="~/static/img/logo-electronic.png"
+                            src="/img/logo-electronic.png"
                             alt="martfury"
                         />
                     </nuxt-link>

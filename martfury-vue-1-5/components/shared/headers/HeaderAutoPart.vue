@@ -35,7 +35,7 @@
                     <nuxt-link to="/home/auto-part">
                         <a class="ps-logo">
                             <img
-                                src="~/static/img/logo-autopart.png"
+                                src="/img/logo-autopart.png"
                                 alt="martfury"
                             />
                         </a>

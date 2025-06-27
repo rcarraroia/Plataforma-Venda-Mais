@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="header__content-left">
                     <nuxt-link to="/home/market-place-2" class="ps-logo">
-                        <img src="~/static/img/logo.png" alt="martfury" />
+                        <img src="/img/logo.png" alt="martfury" />
                     </nuxt-link>
                     <div class="menu--product-categories">
                         <div class="menu__toggle">

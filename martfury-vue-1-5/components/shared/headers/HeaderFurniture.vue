@@ -5,7 +5,7 @@
                 <div class="header__left">
                     <nuxt-link to="/home/furniture" class="ps-logo">
                         <img
-                            src="~/static/img/logo-furniture.png"
+                            src="/img/logo-furniture.png"
                             alt="martfury"
                         />
                     </nuxt-link>

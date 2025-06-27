@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <nuxt-link to="/home/market-place-3" class="ps-logo">
-                        <img src="~/static/img/logo_light.png" alt="martfury" />
+                        <img src="/img/logo_light.png" alt="martfury" />
                     </nuxt-link>
                 </div>
                 <div class="header__center">
