@@ -47,7 +47,43 @@
 
 <script>
 export default {
-    name: "FormAccountSettings"
+    name: "FormAccountSettings",
+    data() {
+        return {
+            formData: {
+                fullName: '',
+                displayName: '',
+                email: '',
+                role: '',
+                address: '',
+                bio: ''
+            }
+        };
+    },
+    async created() {
+        try {
+            const response = await this.$axios.get('/users/me');
+            const user = response.data;
+            this.formData.fullName = user.name || '';
+            this.formData.displayName = user.displayName || '';
+            this.formData.email = user.email || '';
+            this.formData.role = user.role || '';
+            this.formData.address = user.address || '';
+            this.formData.bio = user.bio || '';
+        } catch (error) {
+            console.error('Erro ao carregar dados do usuário:', error);
+        }
+    },
+    methods: {
+        async updateProfile() {
+            try {
+                await this.$axios.put('/users/me', this.formData);
+                alert('Perfil atualizado com sucesso!');
+            } catch (error) {
+                alert('Erro ao atualizar perfil: ' + error.message);
+            }
+        }
+    }
 };
 </script>
 

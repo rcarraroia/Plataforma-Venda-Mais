@@ -57,99 +57,16 @@ export default {
     name: 'TableProductItems',
     data() {
         return {
-            productItems: [
-                {
-                    name: 'Herschel Leather Duffle Bag In Brown Color',
-                    sku: 'AB123456789-1',
-                    stock: 'true',
-                    price: '£125.30',
-                    date: '2019/11/06',
-                    categories: [
-                        {
-                            name: 'Bags'
-                        },
-                        {
-                            name: 'Clothing & Apparel'
-                        }
-                    ]
-                },
-                {
-                    name: 'Apple iPhone Retina 6s Plus 64GB',
-                    sku: 'CD987654316-1',
-                    stock: 'true',
-                    price: '£1,249.99',
-                    date: '2018/12/11',
-                    categories: [
-                        {
-                            name: 'Computers & Technologies'
-                        },
-                        {
-                            name: 'Technologies'
-                        }
-                    ]
-                },
-                {
-                    name: 'Marshall Kilburn Portable Wireless Speaker',
-                    sku: 'SF1133569600-1',
-                    stock: 'true',
-                    price: '£36.78',
-                    date: '2018/12/11',
-                    categories: [
-                        {
-                            name: 'Babies & Moms'
-                        },
-                        {
-                            name: 'Refrigerators'
-                        }
-                    ]
-                },
-                {
-                    name: 'Xbox One Wireless Controller Black Color',
-                    sku: 'AB123456788',
-                    stock: 'false',
-                    price: '£55.30',
-                    date: '2018/12/11',
-                    categories: [
-                        {
-                            name: 'Accessories'
-                        },
-                        {
-                            name: 'Air Conditioners'
-                        }
-                    ]
-                },
-                {
-                    name: 'Grand Slam Indoor Of Show Jumping Novel',
-                    sku: 'AB1234567899',
-                    stock: 'false',
-                    price: '£32.39',
-                    date: '2018/12/11',
-                    categories: [
-                        {
-                            name: 'Books & Office'
-                        },
-                        {
-                            name: 'Cars & Motocycles'
-                        }
-                    ]
-                },
-                {
-                    name: 'Rayban Rounded Sunglass Brown Color',
-                    sku: 'AB123456783',
-                    stock: 'true',
-                    price: '£321.39',
-                    date: '2018/12/11',
-                    categories: [
-                        {
-                            name: 'Clothing & Apparel'
-                        },
-                        {
-                            name: 'Cars & Motocycles'
-                        }
-                    ]
-                }
-            ]
+            productItems: []
         };
+    },
+    async created() {
+        try {
+            const response = await this.$axios.get('/products');
+            this.productItems = response.data;
+        } catch (error) {
+            console.error('Erro ao buscar produtos:', error);
+        }
     }
 };
 </script>

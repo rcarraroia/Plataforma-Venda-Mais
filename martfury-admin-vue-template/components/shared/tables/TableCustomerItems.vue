@@ -44,72 +44,16 @@ export default {
     name: "TableCustomerItems",
     data() {
         return {
-            customers: [
-                {
-                    name: "Jenny Simmonds",
-                    phone: "(+921) 211-32-1145",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                },
-                {
-                    name: "Ammara Molloy",
-                    phone: "(+921) 916-971-217",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                },
-                {
-                    name: "Anisa Forster",
-                    phone: "(+921) 319-176-113",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                },
-                {
-                    name: "Hashir Wilson",
-                    phone: "(+921) 393-112-298",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "false"
-                },
-                {
-                    name: "Grover Sampson",
-                    phone: "(+921) 393-872-137",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                },
-                {
-                    name: "Nelson Mckeown",
-                    phone: "(+921) 393-872-998",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "false"
-                },
-                {
-                    name: "Zunaira Akhtar",
-                    phone: "(+921) 393-872-145",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                },
-                {
-                    name: "Natan Kramer",
-                    phone: "(+921) 293-872-145",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "false"
-                },
-                {
-                    name: "Jesse Pollard",
-                    phone: "(+921) 291-32-145",
-                    balance: "$211.00",
-                    orders: "10",
-                    status: "true"
-                }
-            ]
+            customers: []
         };
+    },
+    async created() {
+        try {
+            const response = await this.$axios.get('/sellers');
+            this.customers = response.data;
+        } catch (error) {
+            console.error('Erro ao buscar clientes:', error);
+        }
     }
 };
 </script>

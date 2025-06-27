@@ -34,15 +34,13 @@ export const actions = {
     commit('setCurrentOrder', data);
   },
   async createOrder({ dispatch }, { supabase, order, orderItems }) {
-    const { data, error } = await supabase.from('orders').insert([order]);
-    if (error) throw error;
-    const orderId = data[0].id;
-    for (const item of orderItems) {
-      item.order_id = orderId;
-      const { error: itemError } = await supabase.from('order_items').insert([item]);
-      if (itemError) throw itemError;
+    try {
+      const response = await this.$axios.post('/orders', { order, orderItems });
+      dispatch('fetchOrdersByUser', { supabase, userId: order.user_id });
+      return response.data;
+    } catch (error) {
+      throw error;
     }
-    dispatch('fetchOrdersByUser', { supabase, userId: order.user_id });
   },
   async updateOrderStatus({ dispatch }, { supabase, id, status }) {
     const { error } = await supabase.from('orders').update({ order_status: status }).eq('id', id);

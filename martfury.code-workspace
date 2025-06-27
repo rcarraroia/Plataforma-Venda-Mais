@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "E:/PROJETOS SITE/repositorios/Plataforma Venda+/martfury-vue-1-5"
+    },
+    {
+      "path": "E:/PROJETOS SITE/repositorios/Plataforma Venda+/martfury-api-for-client-3.1.x"
+    },
+    {
+      "path": "E:/PROJETOS SITE/repositorios/Plataforma Venda+/martfury-admin-vue-template"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": "E:/PROJETOS SITE/repositorios/Plataforma Venda+"
+  }
+}

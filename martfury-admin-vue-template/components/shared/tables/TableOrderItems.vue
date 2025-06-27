@@ -64,49 +64,16 @@ export default {
     name: "TableOrderItems",
     data() {
         return {
-            orderItems: [
-                {
-                    id: "#A580",
-                    date: "Aug 15, 2020",
-                    product: "Unero Black Military",
-                    payment: true,
-                    fullfillment: "delivered",
-                    total: "$56.00"
-                },
-                {
-                    id: "#B260",
-                    date: "Aug 16, 2020",
-                    product: "Marsh Speaker",
-                    payment: false,
-                    fullfillment: "delivered",
-                    total: "$56.00"
-                },
-                {
-                    id: "#A583",
-                    date: "Aug 17, 2020",
-                    product: "Lined Blend T-Shirt",
-                    payment: true,
-                    fullfillment: "In Progress",
-                    total: "$516.00"
-                },
-                {
-                    id: "#A522",
-                    date: "Aug 18, 2020",
-                    product: "DJI MAcvic Quadcopter",
-                    payment: false,
-                    fullfillment: "delivered",
-                    total: "$112.00"
-                },
-                {
-                    id: "#A112",
-                    date: "Aug 19, 2020",
-                    product: "Black T-Shirt",
-                    payment: true,
-                    fullfillment: "Cancel",
-                    total: "$30.00"
-                }
-            ]
+            orderItems: []
         };
+    },
+    async created() {
+        try {
+            const response = await this.$axios.get('/orders');
+            this.orderItems = response.data;
+        } catch (error) {
+            console.error('Erro ao buscar pedidos:', error);
+        }
     }
 };
 </script>

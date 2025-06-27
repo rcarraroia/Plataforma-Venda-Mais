@@ -226,7 +226,39 @@
 
 <script>
 export default {
-    name: 'FormProductCreateNew'
+    name: 'FormProductCreateNew',
+    data() {
+        return {
+            formData: {
+                name: '',
+                reference: '',
+                summary: '',
+                regularPrice: '',
+                salePrice: '',
+                saleQuantity: '',
+                soldItems: '',
+                description: '',
+                thumbnail: '',
+                gallery: [],
+                videoUrl: '',
+                sku: '',
+                status: '',
+                brand: '',
+                tags: ''
+            }
+        };
+    },
+    methods: {
+        async submitForm() {
+            try {
+                const response = await this.$axios.post('/products', this.formData);
+                alert('Produto criado com sucesso!');
+                // Limpar formulário ou redirecionar conforme necessário
+            } catch (error) {
+                alert('Erro ao criar produto: ' + error.message);
+            }
+        }
+    }
 };
 </script>
 
